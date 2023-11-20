@@ -4,6 +4,7 @@
       {{pageTitle}}
     </v-app-bar-title>
     <template v-slot:append>
+      <v-btn icon="mdi-brightness-6" @click="toggleTheme"></v-btn>
       <v-btn icon="mdi-magnify"></v-btn>
       <v-menu>
         <template v-slot:activator="{ props }">
@@ -29,6 +30,13 @@
 </template>
 
 <script setup>
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
 </script>
 <script>
 export default {
