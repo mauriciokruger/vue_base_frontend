@@ -14,14 +14,8 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import('@/views/Home.vue'),
       },
-    ],
-  },
-  {
-    path: '/teste',
-    component: () => import('@/layouts/default/Default.vue'),
-    children: [
       {
-        path: '',
+        path: '/teste',
         name: 'Teste',
         // route level code-splitting
         // this generates a separate chunk (Home-[hash].js) for this route
@@ -30,6 +24,20 @@ const routes = [
       },
     ],
   },
+  // {
+  //   path: '/teste',
+  //   component: () => import('@/layouts/default/Default.vue'),
+  //   children: [
+  //     {
+  //       path: '',
+  //       name: 'Teste',
+  //       // route level code-splitting
+  //       // this generates a separate chunk (Home-[hash].js) for this route
+  //       // which is lazy-loaded when the route is visited.
+  //       component: () => import('@/views/Teste.vue'),
+  //     },
+  //   ],
+  // },
 ]
 
 const router = createRouter({
