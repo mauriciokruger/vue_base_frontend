@@ -30,12 +30,29 @@
 </template>
 
 <script setup>
+
 import { useTheme } from 'vuetify'
 
 const theme = useTheme()
 
+function getTheme () {
+  let themeStorage = localStorage.getItem('darkTheme')
+  if (themeStorage == 'true') {
+    theme.global.name.value = 'dark'
+  } else {
+    theme.global.name.value = 'light'
+  }
+}
+getTheme();
 function toggleTheme () {
   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+  if (theme.global.current.value.dark) {
+    theme.global.name.value = 'dark'
+    localStorage.setItem('darkTheme', 'true')
+  } else {
+    theme.global.name.value = 'light'
+    localStorage.setItem('darkTheme', 'false')
+  }
 }
 </script>
 <script>
@@ -53,7 +70,6 @@ export default {
   methods: {
     updatePageTitle () {
       let rota = this.$route.name
-      console.log(rota)
       switch (rota) {
         case 'Teste':
           this.pageTitle = 'Título da página é teste'
