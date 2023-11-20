@@ -1,0 +1,21 @@
+$primary: #2687e9;
+$secondary: #00aff0;
+$background: #f1f4f9;
+$text: #000;
+.base_page {
+  background-color: $background;
+  padding: 90px 10px 0px 10px;
+}
+.v-layout {
+  background-color: $background;
+}
+.v-list-item--active {
+  background: white!important;
+  color: $text!important;
+  .v-icon {
+    color: $primary;
+  }
+}
+.v-navigation-drawer__content{
+  background-color: $primary;
+}
