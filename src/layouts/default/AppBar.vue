@@ -17,7 +17,7 @@
               Ajuda
             </v-list-item-title>
           </v-list-item>
-          <v-list-item>
+          <v-list-item @click="dialogExit = true">
             <v-list-item-title>
               <v-icon>mdi-exit-to-app</v-icon>
               Sair
@@ -26,6 +26,29 @@
         </v-list>
       </v-menu>
     </template>
+    <v-dialog v-model="dialogExit" width="500">
+      <v-card title="Sair">
+        <v-card-text>
+         Tem certeza que deseja sair?
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions class="mt-1">
+          <v-row class="w-100" no-gutters align="center" justify="space-between">
+            <v-btn
+              text="Cancelar"
+              variant="tonal"
+              @click="dialogExit = false"
+            ></v-btn>
+            <v-btn
+              text="Sair"
+              color="primary"
+              variant="elevated"
+              @click="logoff"
+            ></v-btn>
+          </v-row>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app-bar>
 </template>
 
@@ -59,6 +82,7 @@ function toggleTheme () {
 export default {
   data () {
     return {
+      dialogExit: false,
       pageTitle: 'Sistema Base'
     }
   },
@@ -68,6 +92,9 @@ export default {
     }
   },
   methods: {
+    logoff () {
+      this.$router.push('/login')
+    },
     updatePageTitle () {
       let rota = this.$route.name
       switch (rota) {

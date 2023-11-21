@@ -9,21 +9,38 @@ $text: #000;
 .v-layout {
   // background-color: $background;
 }
-.v-list-item--active {
-  background: white!important;
-  color: $text!important;
-  .v-icon {
-    color: $primary;
-  }
-}
 .v-theme--light {
   .v-navigation-drawer__content{
     background-color: $primary;
+    .v-list-item--active {
+      background: white!important;
+      color: $text!important;
+      .v-icon {
+        color: $primary;
+      }
+    }
   }
 }
 .v-theme--dark {
   .v-navigation-drawer__content{
-    background-color: $background;
+    background-color: $primary;
+    .v-list {
+    background-color: $primary!important;
+    }
+    .v-list-item {
+      background-color: $primary;
+      color: white;
+      .v-icon {
+        color: white;
+      }
+    }
+    .v-list-item--active {
+      background: white!important;
+      color: $text!important;
+      .v-icon {
+        color: $primary;
+      }
+    }
   }
   .fill-height {
     background: $text;

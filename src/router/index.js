@@ -3,6 +3,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+    path: '/login',
+    component: () => import('@/views/LoginScreen.vue'),
+    // children: [
+    //   {
+    //     path: '',
+    //     name: 'Login',
+    //     component: () => import('@/views/Login.vue'),
+    //   },
+    // ],
+  },
+  {
     path: '/',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
@@ -12,7 +23,7 @@ const routes = [
         // route level code-splitting
         // this generates a separate chunk (Home-[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import('@/views/Home.vue'),
+        component: () => import('@/views/HomeScreen.vue'),
       },
     ],
   },
@@ -23,9 +34,6 @@ const routes = [
       {
         path: '',
         name: 'Teste',
-        // route level code-splitting
-        // this generates a separate chunk (Home-[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () => import('@/views/Teste.vue'),
       },
     ],
